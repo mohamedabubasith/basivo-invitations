@@ -23,8 +23,8 @@ export const weddingConfig: WeddingConfig = {
       photo: "/photos/groom.webp",
     },
     bride: {
-      firstName: { en: "Ashira", ta: "அஷிரா" },
-      fullName: { en: "Ashira Rasmi S", ta: "அஷிரா ரஸ்மி எஸ்" },
+      firstName: { en: "Ashira", ta: "அசிரா" },
+      fullName: { en: "Ashira Rasmi S", ta: "அசிரா ரஸ்மி எஸ்" },
       lineage: { en: "daughter of Sarbudeen & Samsath Begum", ta: "சர்புதீன் & சம்சத் பேகம் அவர்களின் புதல்வி" },
       role: { en: "The Bride", ta: "மணமகள்" },
       initial: "A",
@@ -146,17 +146,17 @@ export const weddingConfig: WeddingConfig = {
   },
 
   footer: {
-    names: { en: "Natheem & Ashira", ta: "நதீம் & அஷிரா" },
+    names: { en: "Natheem & Ashira", ta: "நதீம் & அசிரா" },
     dateLabel: { en: "03 · 01 · 2027", ta: "03 · 01 · 2027" },
     location: { en: "Thiruvarur", ta: "திருவாரூர்" },
     tagline: { en: "Made with love, in remembrance of Allah", ta: "அல்லாஹ்வின் நினைவுடன், அன்புடன் உருவாக்கப்பட்டது" },
   },
 
   meta: {
-    title: { en: "Natheem & Ashira — A Wedding Invitation", ta: "நதீம் & அஷிரா — திருமண அழைப்பிதழ்" },
+    title: { en: "Natheem & Ashira — A Wedding Invitation", ta: "நதீம் & அசிரா — திருமண அழைப்பிதழ்" },
     description: {
       en: "With the blessings of Allah, Natheem & Ashira joyfully invite you to their Nikah — Sunday, 3 January 2027.",
-      ta: "அல்லாஹ்வின் அருளுடன், நதீம் & அஷிரா தங்கள் நிக்காஹ் விழாவிற்கு தங்களை அன்புடன் அழைக்கின்றனர் — ஞாயிறு, 3 ஜனவரி 2027.",
+      ta: "அல்லாஹ்வின் அருளுடன், நதீம் & அசிரா தங்கள் நிக்காஹ் விழாவிற்கு தங்களை அன்புடன் அழைக்கின்றனர் — ஞாயிறு, 3 ஜனவரி 2027.",
     },
     themeColor: "#05130d",
   },
