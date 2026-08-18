@@ -28,7 +28,7 @@ export const weddingConfig: WeddingConfig = {
       lineage: { en: "daughter of Sarbudeen & Samsath Begum", ta: "சர்புதீன் & சம்சத் பேகம் அவர்களின் புதல்வி" },
       role: { en: "The Bride", ta: "மணமகள்" },
       initial: "A",
-      // photo: "/photos/bride.jpg",
+      photo: "/photos/bride.webp",
     },
   },
 
