@@ -123,7 +123,7 @@ export const weddingConfig: WeddingConfig = {
       },
       {
         name: { en: "Walima", ta: "வலீமா" },
-        day: { en: "Monday · 4 January", ta: "திங்கள் · 4 ஜனவரி" },
+        day: { en: "Tuesday · 5 January", ta: "செவ்வாய் · 5 ஜனவரி" },
         time: { en: "7:30 PM", ta: "இரவு 7:30" },
         venue: { en: "Noor Banquet Hall", ta: "நூர் விருந்தினர் மண்டபம்" },
       },
