@@ -277,7 +277,7 @@ html.anim [data-hero] {
 .invite-families {
   font-style: italic;
   color: var(--gold-soft);
-  font-size: var(--fs-h3);
+  font-size: clamp(1.05rem, 0.85rem + 1.1vw, 1.6rem);
   line-height: 1.5;
 }
 .invite-families__line {
