@@ -88,7 +88,7 @@ export const weddingConfig: WeddingConfig = {
     arabicWord: "نِكَاح",
     dayLabel: { en: "Sunday", ta: "ஞாயிறு" },
     dateLabel: { en: "3 January 2027", ta: "3 ஜனவரி 2027" },
-    time: { en: "Ba’d Ẓuhr · 4:00 in the afternoon", ta: "லுஹர் தொழுகைக்குப் பின் · மதியம் 4:00 மணி" },
+    time: { en: "Ba’d Ẓuhr · 12:00 Noon", ta: "லுஹர் தொழுகைக்குப் பின் · நண்பகல் 12:00 மணி" },
     venue: {
       name: { en: "Thiruvarur", ta: "திருவாரூர்" },
       address: {
@@ -101,7 +101,7 @@ export const weddingConfig: WeddingConfig = {
       en: "Please join us as we begin our journey as husband and wife, in the presence of Allah and our loved ones.",
       ta: "அல்லாஹ்வின் சமூகத்திலும், நேசிப்போரின் முன்னிலையிலும், கணவன்-மனைவியாக எங்கள் புதிய பயணத்தைத் தொடங்கும் இத்தருணத்தில் தங்களையும் இணைந்துகொள்ள அன்புடன் அழைக்கிறோம்.",
     },
-    countdownTarget: "2027-01-03T16:00:00",
+    countdownTarget: "2027-01-03T12:00:00",
   },
 
   events: {
@@ -120,7 +120,7 @@ export const weddingConfig: WeddingConfig = {
       {
         name: { en: "Nikah", ta: "நிக்காஹ்" },
         day: { en: "Sunday · 3 January", ta: "ஞாயிறு · 3 ஜனவரி" },
-        time: { en: "4:00 PM", ta: "மதியம் 4:00" },
+        time: { en: "12:00 PM", ta: "நண்பகல் 12:00" },
         venue: { en: "Kattur · Thiruvarur", ta: "கட்டூர் · திருவாரூர்" },
       },
       {
