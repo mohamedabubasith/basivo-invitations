@@ -16,16 +16,16 @@ export const weddingConfig: WeddingConfig = {
   couple: {
     groom: {
       firstName: { en: "Natheem", ta: "நதீம்" },
-      fullName: { en: "Natheem", ta: "நதீம்" },
-      lineage: { en: "son of Mr. & Mrs. Abdur Rahman", ta: "திரு. & திருமதி. அப்துர் ரஹ்மான் அவர்களின் புதல்வர்" },
+      fullName: { en: "Mohamed Natheem A", ta: "முஹம்மது நதீம் ஏ" },
+      lineage: { en: "son of Ameer Ali & TajNisha", ta: "அமீர் அலி & தாஜ்நிஷா அவர்களின் புதல்வர்" },
       role: { en: "The Groom", ta: "மணமகன்" },
       initial: "N",
       // photo: "/photos/groom.jpg",
     },
     bride: {
-      firstName: { en: "Ashira", ta: "ஆஷிரா" },
-      fullName: { en: "Ashira", ta: "ஆஷிரா" },
-      lineage: { en: "daughter of Mr. & Mrs. Kamran Siddiqui", ta: "திரு. & திருமதி. கம்ரான் சித்திகி அவர்களின் புதல்வி" },
+      firstName: { en: "Ashira", ta: "அஷிரா" },
+      fullName: { en: "Ashira Rasmi S", ta: "அஷிரா ரஸ்மி எஸ்" },
+      lineage: { en: "daughter of Sarbudeen & Samsath Begum", ta: "சர்புதீன் & சம்சத் பேகம் அவர்களின் புதல்வி" },
       role: { en: "The Bride", ta: "மணமகள்" },
       initial: "A",
       // photo: "/photos/bride.jpg",
@@ -57,8 +57,8 @@ export const weddingConfig: WeddingConfig = {
       ta: "அல்லாஹ்வுக்கு நன்றி நிறைந்த உள்ளத்துடன், அன்பு நிறை குடும்பங்களுடன் இணைந்து,",
     },
     families: {
-      en: "Mr. & Mrs. Abdur Rahman  &  Mr. & Mrs. Kamran Siddiqui",
-      ta: "திரு. & திருமதி. அப்துர் ரஹ்மான்  &  திரு. & திருமதி. கம்ரான் சித்திகி",
+      en: "Ameer Ali & TajNisha  &  Sarbudeen & Samsath Begum",
+      ta: "அமீர் அலி & தாஜ்நிஷா  &  சர்புதீன் & சம்சத் பேகம்",
     },
     body: {
       en: "joyfully request the honour of your presence to celebrate the union of their children in the blessed bond of marriage.",
@@ -149,17 +149,17 @@ export const weddingConfig: WeddingConfig = {
   },
 
   footer: {
-    names: { en: "Natheem & Ashira", ta: "நதீம் & ஆஷிரா" },
+    names: { en: "Natheem & Ashira", ta: "நதீம் & அஷிரா" },
     dateLabel: { en: "03 · 01 · 2027", ta: "03 · 01 · 2027" },
     location: { en: "Thiruvarur", ta: "திருவாரூர்" },
     tagline: { en: "Made with love, in remembrance of Allah", ta: "அல்லாஹ்வின் நினைவுடன், அன்புடன் உருவாக்கப்பட்டது" },
   },
 
   meta: {
-    title: { en: "Natheem & Ashira — A Wedding Invitation", ta: "நதீம் & ஆஷிரா — திருமண அழைப்பிதழ்" },
+    title: { en: "Natheem & Ashira — A Wedding Invitation", ta: "நதீம் & அஷிரா — திருமண அழைப்பிதழ்" },
     description: {
       en: "With the blessings of Allah, Natheem & Ashira joyfully invite you to their Nikah — Sunday, 3 January 2027.",
-      ta: "அல்லாஹ்வின் அருளுடன், நதீம் & ஆஷிரா தங்கள் நிக்காஹ் விழாவிற்கு தங்களை அன்புடன் அழைக்கின்றனர் — ஞாயிறு, 3 ஜனவரி 2027.",
+      ta: "அல்லாஹ்வின் அருளுடன், நதீம் & அஷிரா தங்கள் நிக்காஹ் விழாவிற்கு தங்களை அன்புடன் அழைக்கின்றனர் — ஞாயிறு, 3 ஜனவரி 2027.",
     },
     themeColor: "#05130d",
   },
