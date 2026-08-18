@@ -51,6 +51,30 @@ src/components/TemplateRenderer.tsx   applies theme vars + renders sections in o
   (`TemplateRenderer`, `MotionRoot`, the nav) reads the registries above, so nothing else
   needs to change. `@/*` resolves to `./src/*` (see `tsconfig.json`).
 
+## Language (English + Tamil)
+
+- Every guest-facing string in `WeddingConfig` is a `LocalizedString` (`{ en, ta }` —
+  `src/lib/i18n.ts`), not a plain `string`. Non-text fields (photo paths, `mapUrl`,
+  `countdownTarget`, `email`, `themeColor`) and Quranic Arabic stay plain — they don't
+  change per language.
+- `DEFAULT_LANG` (`"ta"`) is what's actually in the static HTML. Sections spread
+  `{...bi(field, lang)}` onto the text-bearing element instead of `{field}`: it renders
+  `field[lang]` as real children *and* stashes both strings as `data-i18n-en`/
+  `data-i18n-ta`. `biHref()` does the same for an `href` (e.g. the RSVP mailto links).
+- The EN/த corner toggle (rendered in `MotionRoot`) is wired by
+  `engine/lang-toggle.ts`'s `setupLangToggle` — a DOM attribute flip, not React state,
+  in the same imperative spirit as the motion engine: it walks every `[data-i18n-en]` /
+  `[data-i18n-href-en]` node and swaps `textContent`/`href`, and flips `data-lang` on
+  `.template-root` + `<html lang>`. It never re-renders, so it can't disturb GSAP/SplitText.
+- Fixed chrome strings that aren't part of any couple's content (countdown unit labels,
+  "Get directions", the RSVP mailto subject/body, …) live in `UI` in `src/lib/i18n.ts`,
+  not scattered as hardcoded JSX text — add new chrome copy there, not inline.
+- `globals.css` relaxes the Latin uppercase/wide-tracking label styles under
+  `[data-lang="ta"]` — Tamil has no letter-casing and wide tracking breaks its vowel
+  signs. Extending a tracked-uppercase class to a new element needs the same treatment.
+- New client data files must supply both languages for every `LocalizedString` field;
+  there's no fallback if one is missing.
+
 ## Stack (Next.js 16 — read node_modules/next/dist/docs before coding, see AGENTS.md)
 
 - Next.js 16 App Router + TypeScript, **static export** (`output: 'export'`, `images.unoptimized`,
