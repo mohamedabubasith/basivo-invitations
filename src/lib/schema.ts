@@ -65,7 +65,14 @@ export interface WeddingConfig {
     leadOut: LocalizedString;
     dateLabel: LocalizedString;
   };
-  invitation: { intro: LocalizedString; families: LocalizedString; body: LocalizedString; quote: LocalizedString };
+  invitation: {
+    intro: LocalizedString;
+    /** Groom's parents, e.g. "Ameer Ali & TajNisha" — shown stacked with `brideFamily`. */
+    groomFamily: LocalizedString;
+    brideFamily: LocalizedString;
+    body: LocalizedString;
+    quote: LocalizedString;
+  };
   verse: QuranVerse;
   couple_eyebrow: LocalizedString;
   nikah: {

@@ -10,7 +10,13 @@ export function Invitation({ config, lang }: { config: WeddingConfig; lang: Lang
         <p className="eyebrow" data-reveal {...bi(UI.invitationEyebrow, lang)} />
         <div className="card-arch scrim stack">
           <p className="lead" data-reveal {...bi(i.intro, lang)} />
-          <p className="invite-families" data-reveal="words" {...bi(i.families, lang)} />
+          <p className="invite-families" data-reveal="words">
+            <span className="invite-families__line" {...bi(i.groomFamily, lang)} />
+            <span className="amp" aria-hidden="true">
+              &amp;
+            </span>
+            <span className="invite-families__line" {...bi(i.brideFamily, lang)} />
+          </p>
           <p className="lead" data-reveal {...bi(i.body, lang)} />
           <div className="divider" data-reveal>
             <span className="divider__dot" />

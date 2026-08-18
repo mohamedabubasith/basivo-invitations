@@ -56,10 +56,8 @@ export const weddingConfig: WeddingConfig = {
       en: "With hearts full of gratitude to Allah, and together with their beloved families,",
       ta: "அல்லாஹ்வுக்கு நன்றி நிறைந்த உள்ளத்துடன், அன்பு நிறை குடும்பங்களுடன் இணைந்து,",
     },
-    families: {
-      en: "Ameer Ali & TajNisha  &  Sarbudeen & Samsath Begum",
-      ta: "அமீர் அலி & தாஜ்நிஷா  &  சர்புதீன் & சம்சத் பேகம்",
-    },
+    groomFamily: { en: "Ameer Ali & TajNisha", ta: "அமீர் அலி & தாஜ்நிஷா" },
+    brideFamily: { en: "Sarbudeen & Samsath Begum", ta: "சர்புதீன் & சம்சத் பேகம்" },
     body: {
       en: "joyfully request the honour of your presence to celebrate the union of their children in the blessed bond of marriage.",
       ta: "தங்கள் பிள்ளைகளின் புனிதமான திருமணப் பந்தத்தைக் கொண்டாட, தங்களது கண்ணியமான வருகையை மகிழ்ச்சியுடன் வேண்டுகின்றனர்.",

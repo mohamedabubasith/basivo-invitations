@@ -36,10 +36,13 @@ export function Nikah({ config, lang }: { config: WeddingConfig; lang: Lang }) {
           <p className="nikah__venue-name" {...bi(n.venue.name, lang)} />
           <p className="nikah__venue-addr" {...bi(n.venue.address, lang)} />
           {n.venue.mapUrl && (
-            <a className="map-link" href={n.venue.mapUrl} target="_blank" rel="noopener noreferrer">
-              <span {...bi(UI.directions, lang)} />
-              <span aria-hidden="true">↗</span>
-            </a>
+            <a
+              className="btn"
+              href={n.venue.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              {...bi(UI.directions, lang)}
+            />
           )}
         </div>
 

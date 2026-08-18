@@ -280,6 +280,16 @@ html.anim [data-hero] {
   font-size: var(--fs-h3);
   line-height: 1.5;
 }
+.invite-families__line {
+  display: block;
+}
+.invite-families .amp {
+  display: block;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 0.6em;
+  margin-block: 0.15em;
+}
 
 /* -------------------------------- verse --------------------------------- */
 #verse {
@@ -476,31 +486,6 @@ html.anim [data-hero] {
   margin-inline: auto;
   color: var(--ivory-dim);
   font-style: italic;
-}
-.map-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  margin-top: 0.4rem;
-  font-family: var(--ff-ui);
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  color: var(--gold-bright);
-  text-decoration: none;
-  border-bottom: 1px solid var(--gold-deep);
-  padding-bottom: 0.35rem;
-  transition: color 0.4s var(--ease-reveal), border-color 0.4s var(--ease-reveal);
-}
-.map-link:hover,
-.map-link:focus-visible {
-  color: var(--gold-bright);
-  border-color: var(--gold-bright);
-}
-.map-link span {
-  font-size: 1.05em;
-  line-height: 1;
 }
 .countdown {
   display: flex;
@@ -777,7 +762,6 @@ footer {
 [data-lang="ta"] .rsvp-note,
 [data-lang="ta"] .footer-meta,
 [data-lang="ta"] .cd__lbl,
-[data-lang="ta"] .map-link,
 [data-lang="ta"] .btn,
 [data-lang="ta"] .scrollcue {
   letter-spacing: 0.02em;
