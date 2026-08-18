@@ -20,7 +20,7 @@ export const weddingConfig: WeddingConfig = {
       lineage: { en: "son of Ameer Ali & TajNisha", ta: "அமீர் அலி & தாஜ்நிஷா அவர்களின் புதல்வர்" },
       role: { en: "The Groom", ta: "மணமகன்" },
       initial: "N",
-      // photo: "/photos/groom.jpg",
+      photo: "/photos/groom.webp",
     },
     bride: {
       firstName: { en: "Ashira", ta: "அஷிரா" },
