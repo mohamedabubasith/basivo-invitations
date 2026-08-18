@@ -1,3 +1,7 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 @AGENTS.md
 
 # Wedding Invitation Studio
@@ -36,8 +40,16 @@ src/components/TemplateRenderer.tsx   applies theme vars + renders sections in o
 ```
 
 - **New client** → copy `src/data/clients/demo.ts`, edit values, point `active.ts` at it.
-- **New design** → add a theme in `src/lib/themes/` + register it.
-- **New arrangement** → add a template in `src/lib/templates/` (reorder/choose section keys).
+- **New design** → add a theme in `src/lib/themes/` (colours/fonts/particle palette,
+  `Theme` shape in `types.ts`) and register it in `THEMES` (`themes/index.ts`).
+- **New arrangement** → add a template in `src/lib/templates/` (ordered `SectionKey[]` +
+  a `theme` id) and register it in `TEMPLATES` (`templates/index.ts`).
+- **New section type** → add the component in `src/components/sections/`, add its key to
+  `SectionKey` (`templates/types.ts`), and register it in `SECTION_REGISTRY` (+ `NAV_LABELS`
+  if it should get a nav dot) in `sections/registry.ts`.
+- Adding a theme/template/section is a **registration**, not a rewire: every consumer
+  (`TemplateRenderer`, `MotionRoot`, the nav) reads the registries above, so nothing else
+  needs to change. `@/*` resolves to `./src/*` (see `tsconfig.json`).
 
 ## Stack (Next.js 16 — read node_modules/next/dist/docs before coding, see AGENTS.md)
 
@@ -51,9 +63,12 @@ src/components/TemplateRenderer.tsx   applies theme vars + renders sections in o
 
 ## Motion contract
 
-- Sections render markup only. `data-reveal="fade|scale|words|scale"` (Arabic is NEVER
+- Sections render markup only. `data-reveal="fade|scale|words|chars"` (Arabic is NEVER
   char/word-split — it breaks ligatures; use `scale`). `data-parallax="<px>"` for full-bleed
-  drift layers. `data-hero` for the hero entrance. `data-nav` marks nav-dot sections.
+  drift layers. `data-hero` for the hero entrance. `data-nav` marks nav-dot sections
+  (paired with a `.navdots button[data-target]` — see `MotionRoot.tsx`). `data-draw`/
+  `data-draw-medallion` self-draw SVG strokes on scroll; `data-pointer="<strength>"` adds
+  subtle cursor-parallax drift (desktop only).
 - Reduced motion → content shown, one static 3D frame, no loop. Mobile → no pins/scroll-jacking,
   but parallax + reveals stay scroll-coupled (never a dead page).
 - No blocking preloader overlay (it caused stuck-scroll/hidden-content bugs — do not reintroduce).
