@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Amiri, Cormorant_Garamond, Jost } from "next/font/google";
+import { Amiri, Cormorant_Garamond, Jost, Noto_Sans_Tamil, Noto_Serif_Tamil } from "next/font/google";
 import { active } from "@/data/active";
 import { DEFAULT_LANG } from "@/lib/i18n";
 import "./globals.css";
@@ -25,6 +25,22 @@ const jost = Jost({
   variable: "--font-jost",
   display: "swap",
 });
+// Display / names — Tamil. A proper Tamil webfont (correct conjunct/vowel-sign
+// shaping) instead of relying on whatever the OS happens to substitute.
+const notoSerifTamil = Noto_Serif_Tamil({
+  subsets: ["tamil"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-noto-serif-tamil",
+  display: "swap",
+});
+// UI labels / eyebrows — Tamil.
+const notoSansTamil = Noto_Sans_Tamil({
+  subsets: ["tamil"],
+  weight: ["300", "400", "500"],
+  variable: "--font-noto-sans-tamil",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: active.config.meta.title[DEFAULT_LANG],
@@ -44,7 +60,10 @@ const antiFlash = `(function(){var d=document.documentElement;var r=window.match
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={DEFAULT_LANG} className={`${amiri.variable} ${cormorant.variable} ${jost.variable}`}>
+    <html
+      lang={DEFAULT_LANG}
+      className={`${amiri.variable} ${cormorant.variable} ${jost.variable} ${notoSerifTamil.variable} ${notoSansTamil.variable}`}
+    >
       <body>
         <script dangerouslySetInnerHTML={{ __html: antiFlash }} />
         {children}

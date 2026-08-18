@@ -10,6 +10,7 @@ import { setupReveals, setupDraws, setupDesktopPins, setupNav, heroEntrance } fr
 import { setupLangToggle } from "./lang-toggle";
 import { SvgDefs } from "./SvgDefs";
 import { DEFAULT_LANG, UI, type LocalizedString } from "@/lib/i18n";
+import type { ThemeFonts } from "@/lib/themes";
 
 interface NavItem {
   id: string;
@@ -23,6 +24,9 @@ interface MotionRootProps {
   particlePalette: [number, number, number][];
   /** Drives the browser tab title when the EN/த toggle is used. */
   metaTitle: LocalizedString;
+  /** The active theme's typefaces — the EN/த toggle swaps `--ff-display`/`--ff-ui`
+   *  between these, so the Tamil face is always whatever the theme names. */
+  fonts: ThemeFonts;
   children: ReactNode;
 }
 
@@ -32,7 +36,7 @@ interface MotionRootProps {
  * hero entrance, reduced-motion degradation, visibility gating and WebGL
  * context-loss recovery. React never runs per scroll frame. No blocking overlay.
  */
-export function MotionRoot({ style, navItems, particlePalette, metaTitle, children }: MotionRootProps) {
+export function MotionRoot({ style, navItems, particlePalette, metaTitle, fonts, children }: MotionRootProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
@@ -52,7 +56,7 @@ export function MotionRoot({ style, navItems, particlePalette, metaTitle, childr
     if (win.__wedSafety) clearTimeout(win.__wedSafety);
 
     // EN/த toggle — works with or without reduced motion, so it's wired first.
-    const teardownLangToggle = setupLangToggle(root, DEFAULT_LANG, (lang) => {
+    const teardownLangToggle = setupLangToggle(root, DEFAULT_LANG, fonts, (lang) => {
       document.title = metaTitle[lang];
     });
 

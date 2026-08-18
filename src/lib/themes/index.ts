@@ -12,5 +12,5 @@ export function getTheme(id: ThemeId): Theme {
   return THEMES[id];
 }
 
-export type { Theme } from "./types";
+export type { Theme, ThemeFonts } from "./types";
 export { themeToVars } from "./types";

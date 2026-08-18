@@ -24,8 +24,10 @@ export const emeraldIslamic: Theme = {
   },
   fonts: {
     display: "var(--font-cormorant), 'Times New Roman', serif",
+    displayTa: "var(--font-noto-serif-tamil), 'Noto Sans Tamil', serif",
     arabic: "var(--font-amiri), 'Cormorant Garamond', serif",
     ui: "var(--font-jost), system-ui, sans-serif",
+    uiTa: "var(--font-noto-sans-tamil), sans-serif",
   },
   particlePalette: [
     [0.85, 0.71, 0.36],

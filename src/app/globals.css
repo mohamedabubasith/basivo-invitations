@@ -784,6 +784,16 @@ footer {
   text-transform: none;
 }
 
+/* Tamil vowel signs (matras) sit above/below the consonant and extend past a
+   Latin font's cap-height — the very tight leading tuned for Cormorant
+   Garamond's display sizes crops them. Give Tamil display text more room. */
+[data-lang="ta"] .hero__names {
+  line-height: 1.3;
+}
+[data-lang="ta"] .nikah__date {
+  line-height: 1.3;
+}
+
 /* ------------------------- responsive / motion -------------------------- */
 @media (max-width: 767px) {
   .couple-grid {

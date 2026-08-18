@@ -21,10 +21,11 @@ export function TemplateRenderer({ config, template }: { config: WeddingConfig; 
 
   return (
     <MotionRoot
-      style={themeToVars(theme)}
+      style={themeToVars(theme, DEFAULT_LANG)}
       navItems={navItems}
       particlePalette={theme.particlePalette}
       metaTitle={config.meta.title}
+      fonts={theme.fonts}
     >
       {template.sections.map((key) => {
         const Section = SECTION_REGISTRY[key];

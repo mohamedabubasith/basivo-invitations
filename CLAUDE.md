@@ -66,6 +66,15 @@ src/components/TemplateRenderer.tsx   applies theme vars + renders sections in o
   in the same imperative spirit as the motion engine: it walks every `[data-i18n-en]` /
   `[data-i18n-href-en]` node and swaps `textContent`/`href`, and flips `data-lang` on
   `.template-root` + `<html lang>`. It never re-renders, so it can't disturb GSAP/SplitText.
+- Every theme names **four** typefaces, not two: `display`/`ui` (English) *and*
+  `displayTa`/`uiTa` (`ThemeFonts` in `themes/types.ts`) — a Latin font has no Tamil
+  glyphs, so relying on the OS's substitute font is what caused clipped/malformed Tamil
+  letterforms (missing conjunct/vowel-sign shaping) before this was fixed. `themeToVars`
+  seeds `--ff-display`/`--ff-ui` with whichever language renders first; the toggle
+  repoints those same two vars at the theme's other pair on click (`lang-toggle.ts`) —
+  the active Tamil face is always whatever the *theme* names, never hardcoded in the
+  engine. A new theme must load real Tamil webfonts too (Noto Serif/Sans Tamil in
+  `layout.tsx`) — don't leave `displayTa`/`uiTa` pointing at a Latin-only font.
 - Fixed chrome strings that aren't part of any couple's content (countdown unit labels,
   "Get directions", the RSVP mailto subject/body, …) live in `UI` in `src/lib/i18n.ts`,
   not scattered as hardcoded JSX text — add new chrome copy there, not inline.
@@ -83,7 +92,8 @@ src/components/TemplateRenderer.tsx   applies theme vars + renders sections in o
   `globals.css`. Colours/fonts come from the active theme; `--fs-*`, `--ease-*`, `--shell` are `:root`.
 - GSAP 3.15 (ScrollTrigger + SplitText) and Three.js 0.185 (gold particle field, Tier C:
   procedural, one renderer, dpr-capped, WebGL-detected with CSS fallback, context-loss recovery).
-- Fonts via `next/font/google` (Amiri / Cormorant Garamond / Jost) → CSS variables.
+- Fonts via `next/font/google` (Amiri / Cormorant Garamond / Jost, plus Noto Serif Tamil /
+  Noto Sans Tamil for the `ta` typefaces) → CSS variables.
 
 ## Motion contract
 
