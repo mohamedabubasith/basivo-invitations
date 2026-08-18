@@ -599,6 +599,7 @@ html.anim [data-hero] {
   margin-inline: auto;
 }
 .btn {
+  display: inline-block;
   font-family: var(--ff-ui);
   font-weight: 400;
   letter-spacing: 0.22em;
