@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { WeddingConfig } from "@/lib/schema";
+import { bi, type Lang } from "@/lib/i18n";
 
 /** Highlight an optional phrase inside the Arabic without splitting ligatures. */
 function withEmphasis(arabic: string, emphasis?: string): ReactNode {
@@ -16,7 +17,7 @@ function withEmphasis(arabic: string, emphasis?: string): ReactNode {
 }
 
 /** The Verse — the emotional core (Ar-Rum 30:21). Pinned on desktop. */
-export function Verse({ config }: { config: WeddingConfig }) {
+export function Verse({ config, lang }: { config: WeddingConfig; lang: Lang }) {
   const v = config.verse;
   return (
     <section id="verse" data-nav="A Verse">
@@ -31,9 +32,7 @@ export function Verse({ config }: { config: WeddingConfig }) {
         <svg className="verse__uline" viewBox="0 0 340 14" fill="none" data-draw aria-hidden="true">
           <path d="M2 7 Q85 1 170 7 T338 7" stroke="currentColor" strokeWidth="1.4" />
         </svg>
-        <p className="verse__tr" data-reveal="words">
-          {v.translation}
-        </p>
+        <p className="verse__tr" data-reveal="words" {...bi(v.translation, lang)} />
       </div>
     </section>
   );

@@ -1,7 +1,8 @@
 import type { WeddingConfig } from "@/lib/schema";
+import { bi, type Lang } from "@/lib/i18n";
 
 /** Closing flourish. */
-export function Footer({ config }: { config: WeddingConfig }) {
+export function Footer({ config, lang }: { config: WeddingConfig; lang: Lang }) {
   const f = config.footer;
   return (
     <footer id="footer">
@@ -9,15 +10,11 @@ export function Footer({ config }: { config: WeddingConfig }) {
         <div className="divider" aria-hidden="true">
           <span className="divider__dot" />
         </div>
-        <p className="footer-names" data-reveal>
-          {f.names}
-        </p>
+        <p className="footer-names" data-reveal {...bi(f.names, lang)} />
         <p className="footer-meta" data-reveal>
-          {f.dateLabel} · {f.location}
+          <span {...bi(f.dateLabel, lang)} /> · <span {...bi(f.location, lang)} />
         </p>
-        <p className="footer-meta" data-reveal>
-          {f.tagline}
-        </p>
+        <p className="footer-meta" data-reveal {...bi(f.tagline, lang)} />
       </div>
     </footer>
   );

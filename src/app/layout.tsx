@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Amiri, Cormorant_Garamond, Jost } from "next/font/google";
 import { active } from "@/data/active";
+import { DEFAULT_LANG } from "@/lib/i18n";
 import "./globals.css";
 
 // Arabic + calligraphic accents.
@@ -26,8 +27,8 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: active.config.meta.title,
-  description: active.config.meta.description,
+  title: active.config.meta.title[DEFAULT_LANG],
+  description: active.config.meta.description[DEFAULT_LANG],
 };
 
 export const viewport: Viewport = {
@@ -43,7 +44,7 @@ const antiFlash = `(function(){var d=document.documentElement;var r=window.match
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${amiri.variable} ${cormorant.variable} ${jost.variable}`}>
+    <html lang={DEFAULT_LANG} className={`${amiri.variable} ${cormorant.variable} ${jost.variable}`}>
       <body>
         <script dangerouslySetInnerHTML={{ __html: antiFlash }} />
         {children}

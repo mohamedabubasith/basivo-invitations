@@ -446,6 +446,11 @@ html.anim [data-hero] {
   font-style: normal;
   letter-spacing: 0.06em;
 }
+.nikah__date .nikah__date-day {
+  display: inline;
+  font-style: italic;
+  letter-spacing: normal;
+}
 .nikah__time {
   font-family: var(--ff-ui);
   letter-spacing: 0.3em;
@@ -723,6 +728,60 @@ footer {
 }
 .navdots button:hover {
   opacity: 1;
+}
+.lang-switch {
+  position: fixed;
+  top: max(1.1rem, env(safe-area-inset-top));
+  right: max(1.1rem, env(safe-area-inset-right));
+  z-index: 210;
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(201, 162, 75, 0.35);
+  border-radius: 999px;
+  background: rgba(4, 17, 11, 0.55);
+  backdrop-filter: blur(6px);
+}
+.lang-switch button {
+  font-family: var(--ff-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--ivory-faint);
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 0.32rem 0.7rem;
+  cursor: pointer;
+  transition: background 0.35s var(--ease-reveal), color 0.35s var(--ease-reveal);
+}
+.lang-switch button[aria-pressed="true"] {
+  background: var(--gold);
+  color: var(--deep);
+}
+.lang-switch button:hover {
+  color: var(--gold-bright);
+}
+.lang-switch button[aria-pressed="true"]:hover {
+  color: var(--deep);
+}
+
+/* Tamil script has no letter-casing and its vowel signs attach to the
+   consonant they follow — the wide tracking + forced caps tuned for Latin
+   uppercase labels break that, so relax both while Tamil is active. */
+[data-lang="ta"] .eyebrow,
+[data-lang="ta"] .hero__sub,
+[data-lang="ta"] .person__role,
+[data-lang="ta"] .nikah__time,
+[data-lang="ta"] .nikah__venue-addr,
+[data-lang="ta"] .tl__when,
+[data-lang="ta"] .rsvp-note,
+[data-lang="ta"] .footer-meta,
+[data-lang="ta"] .cd__lbl,
+[data-lang="ta"] .map-link,
+[data-lang="ta"] .btn,
+[data-lang="ta"] .scrollcue {
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 
 /* ------------------------- responsive / motion -------------------------- */

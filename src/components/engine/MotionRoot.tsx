@@ -7,7 +7,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { createParticleField, type ParticleField } from "./three-particles";
 import { setupReveals, setupDraws, setupDesktopPins, setupNav, heroEntrance } from "./motion-setup";
+import { setupLangToggle } from "./lang-toggle";
 import { SvgDefs } from "./SvgDefs";
+import { DEFAULT_LANG, UI, type LocalizedString } from "@/lib/i18n";
 
 interface NavItem {
   id: string;
@@ -19,6 +21,8 @@ interface MotionRootProps {
   style?: CSSProperties;
   navItems: NavItem[];
   particlePalette: [number, number, number][];
+  /** Drives the browser tab title when the EN/த toggle is used. */
+  metaTitle: LocalizedString;
   children: ReactNode;
 }
 
@@ -28,7 +32,7 @@ interface MotionRootProps {
  * hero entrance, reduced-motion degradation, visibility gating and WebGL
  * context-loss recovery. React never runs per scroll frame. No blocking overlay.
  */
-export function MotionRoot({ style, navItems, particlePalette, children }: MotionRootProps) {
+export function MotionRoot({ style, navItems, particlePalette, metaTitle, children }: MotionRootProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
@@ -47,6 +51,11 @@ export function MotionRoot({ style, navItems, particlePalette, children }: Motio
     document.documentElement.classList.remove("anim");
     if (win.__wedSafety) clearTimeout(win.__wedSafety);
 
+    // EN/த toggle — works with or without reduced motion, so it's wired first.
+    const teardownLangToggle = setupLangToggle(root, DEFAULT_LANG, (lang) => {
+      document.title = metaTitle[lang];
+    });
+
     // 3D atmosphere (feature-detected; null => CSS gradient remains).
     let field: ParticleField | null = createParticleField(canvas, { isMobile, palette: particlePalette });
     if (!field) canvas.style.display = "none";
@@ -54,7 +63,10 @@ export function MotionRoot({ style, navItems, particlePalette, children }: Motio
     // Reduced motion: one static frame, no loop, content already visible.
     if (reduce) {
       field?.render(0, 0, 0, 0);
-      return () => field?.dispose();
+      return () => {
+        teardownLangToggle();
+        field?.dispose();
+      };
     }
 
     gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -184,6 +196,7 @@ export function MotionRoot({ style, navItems, particlePalette, children }: Motio
       canvas.removeEventListener("webglcontextrestored", onRestored);
       ctx.revert();
       field?.dispose();
+      teardownLangToggle();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -191,7 +204,7 @@ export function MotionRoot({ style, navItems, particlePalette, children }: Motio
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   return (
-    <div ref={rootRef} className="template-root" style={style}>
+    <div ref={rootRef} className="template-root" style={style} data-lang={DEFAULT_LANG}>
       <SvgDefs />
       <div className="bg-gradient" aria-hidden="true" />
       <canvas ref={canvasRef} id="bg" className="bg-canvas" aria-hidden="true" />
@@ -201,11 +214,20 @@ export function MotionRoot({ style, navItems, particlePalette, children }: Motio
         <div ref={progressRef} className="progress__bar" />
       </div>
 
-      <nav className="navdots" aria-label="Section navigation">
+      <nav className="navdots" aria-label={UI.navLabel[DEFAULT_LANG]}>
         {navItems.map((n) => (
           <button key={n.id} type="button" data-target={n.id} aria-label={n.label} onClick={() => scrollTo(n.id)} />
         ))}
       </nav>
+
+      <div className="lang-switch" role="group" aria-label={UI.languageGroupLabel[DEFAULT_LANG]}>
+        <button type="button" data-lang-btn="ta" aria-pressed={DEFAULT_LANG === "ta"}>
+          த
+        </button>
+        <button type="button" data-lang-btn="en" aria-pressed={DEFAULT_LANG === "en"}>
+          EN
+        </button>
+      </div>
 
       <main>{children}</main>
     </div>

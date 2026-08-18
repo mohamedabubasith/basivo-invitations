@@ -1,16 +1,15 @@
 import type { WeddingConfig } from "@/lib/schema";
+import { bi, UI, type Lang } from "@/lib/i18n";
 import { Countdown } from "../engine/Countdown";
 
 /** The Nikah — the jewel. An elegant mihrab arch draws on to frame the date. */
-export function Nikah({ config }: { config: WeddingConfig }) {
+export function Nikah({ config, lang }: { config: WeddingConfig; lang: Lang }) {
   const n = config.nikah;
   return (
     <section id="nikah" data-nav="The Nikah">
       <div className="nikah__glow" data-parallax="-40" aria-hidden="true" />
       <div className="shell stack">
-        <p className="eyebrow" data-reveal>
-          {n.eyebrow}
-        </p>
+        <p className="eyebrow" data-reveal {...bi(n.eyebrow, lang)} />
 
         <div className="nikah__stage">
           <svg className="nikah__arch" viewBox="0 0 300 440" fill="none" data-draw-medallion aria-hidden="true">
@@ -26,33 +25,29 @@ export function Nikah({ config }: { config: WeddingConfig }) {
               {n.arabicWord}
             </p>
             <h2 className="nikah__date" data-reveal="scale">
-              {n.dayLabel}
-              <span>{n.dateLabel}</span>
+              <span className="nikah__date-day" {...bi(n.dayLabel, lang)} />
+              <span {...bi(n.dateLabel, lang)} />
             </h2>
-            <p className="nikah__time" data-reveal>
-              {n.time}
-            </p>
+            <p className="nikah__time" data-reveal {...bi(n.time, lang)} />
           </div>
         </div>
 
         <div className="stack" data-reveal>
-          <p className="nikah__venue-name">{n.venue.name}</p>
-          <p className="nikah__venue-addr">{n.venue.address}</p>
+          <p className="nikah__venue-name" {...bi(n.venue.name, lang)} />
+          <p className="nikah__venue-addr" {...bi(n.venue.address, lang)} />
           {n.venue.mapUrl && (
             <a className="map-link" href={n.venue.mapUrl} target="_blank" rel="noopener noreferrer">
-              Get directions
+              <span {...bi(UI.directions, lang)} />
               <span aria-hidden="true">↗</span>
             </a>
           )}
         </div>
 
         <div data-reveal>
-          <Countdown target={n.countdownTarget} label="Time remaining until the Nikah" />
+          <Countdown target={n.countdownTarget} lang={lang} />
         </div>
 
-        <p className="nikah__note" data-reveal>
-          {n.note}
-        </p>
+        <p className="nikah__note" data-reveal {...bi(n.note, lang)} />
       </div>
     </section>
   );

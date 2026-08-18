@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { bi, UI, type Lang, type LocalizedString } from "@/lib/i18n";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
 /** Live countdown to the Nikah. Renders "00"s on the server; ticks after hydration. */
-export function Countdown({ target, label }: { target: string; label: string }) {
+export function Countdown({ target, lang }: { target: string; lang: Lang }) {
   const [t, setT] = useState({ d: "00", h: "00", m: "00", s: "00" });
 
   useEffect(() => {
@@ -25,23 +26,23 @@ export function Countdown({ target, label }: { target: string; label: string }) 
   }, [target]);
 
   return (
-    <div className="countdown" aria-label={label}>
-      <Unit n={t.d} label="Days" />
+    <div className="countdown" aria-label={UI.countdownLabel[lang]}>
+      <Unit n={t.d} label={UI.days} lang={lang} />
       <Sep />
-      <Unit n={t.h} label="Hours" />
+      <Unit n={t.h} label={UI.hours} lang={lang} />
       <Sep />
-      <Unit n={t.m} label="Minutes" />
+      <Unit n={t.m} label={UI.minutes} lang={lang} />
       <Sep />
-      <Unit n={t.s} label="Seconds" />
+      <Unit n={t.s} label={UI.seconds} lang={lang} />
     </div>
   );
 }
 
-function Unit({ n, label }: { n: string; label: string }) {
+function Unit({ n, label, lang }: { n: string; label: LocalizedString; lang: Lang }) {
   return (
     <div className="cd">
       <span className="cd__num">{n}</span>
-      <span className="cd__lbl">{label}</span>
+      <span className="cd__lbl" {...bi(label, lang)} />
     </div>
   );
 }
