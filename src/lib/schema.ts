@@ -94,7 +94,6 @@ export interface WeddingConfig {
     duaArabic: string;
     duaTranslation: LocalizedString;
     body: LocalizedString;
-    email: string;
     /** e.g. "the 20th of November 2026" */
     replyBy: LocalizedString;
   };

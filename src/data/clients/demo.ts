@@ -142,7 +142,6 @@ export const weddingConfig: WeddingConfig = {
       en: "We humbly request the pleasure of your company — and, above all, your heartfelt prayers for our new beginning.",
       ta: "தங்களது உடனிருப்பையும், அதைவிட மேலாக, எங்கள் புதிய பயணத்திற்கான தங்களது மனமார்ந்த பிரார்த்தனைகளையும் பணிவுடன் வேண்டுகிறோம்.",
     },
-    email: "rsvp@example.com",
     replyBy: { en: "the 20th of November 2026", ta: "நவம்பர் 20, 2026 க்குள்" },
   },
 

@@ -598,13 +598,6 @@ html.anim [data-hero] {
   max-width: 42ch;
   margin-inline: auto;
 }
-.btns {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 0.6rem;
-}
 .btn {
   font-family: var(--ff-ui);
   font-weight: 400;
@@ -624,15 +617,6 @@ html.anim [data-hero] {
   background: var(--gold);
   color: var(--deep);
   transform: translateY(-2px);
-}
-.btn--solid {
-  background: linear-gradient(180deg, var(--gold-bright), var(--gold));
-  color: var(--deep);
-  border-color: var(--gold-bright);
-}
-.btn--solid:hover,
-.btn--solid:focus-visible {
-  background: var(--gold-bright);
 }
 .rsvp-note {
   font-family: var(--ff-ui);
