@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Tab icon: the mihrab-arch motif used throughout the design system (never a
+       star/circle/rectangle glyph), gold on the theme's deep emerald ground. -->
+  <rect width="32" height="32" fill="#06180f" />
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ecce8a" />
+      <stop offset="55%" stop-color="#c9a24b" />
+      <stop offset="100%" stop-color="#a67c34" />
+    </linearGradient>
+  </defs>
+  <path d="M9 28 L9 15 Q9 7 16 4 Q23 7 23 15 L23 28 Z" fill="url(#g)" />
+</svg>
